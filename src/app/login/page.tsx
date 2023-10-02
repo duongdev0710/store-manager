@@ -1,7 +1,8 @@
 'use client'
 import FontStyle from '@/styles/styles.module.scss'
 import { useRouter } from 'next/navigation'
-import {useForm} from 'react-hook-form'
+import {set, useForm} from 'react-hook-form'
+import useLoadingStore from '@/hooks/store/loading'
 
 const Login = () => {
     const router = useRouter()
@@ -11,15 +12,16 @@ const Login = () => {
             password: ''
         }
     })
+    const setLoading = useLoadingStore((state: any) => state.setLoading)
+    const setClearLoading = useLoadingStore((state: any) => state.removeLoading)
 
     const onSubmit = (data: any, e: any) => {
         e.preventDefault()
-        console.log(data)
-        if (data.userName === 'duongdt3' && data.password === '123456') {
-            setTimeout(() => {
-                router.push('/home')
-            }, 2000)
-        }
+        setLoading()
+        setTimeout(() => {
+            setClearLoading()
+            router.push('/home')
+        }, 2000)
     }
 
     return (
@@ -38,8 +40,8 @@ const Login = () => {
                             <div>
                                 <label htmlFor="email" className={`block mb-2 text-sm font-medium text-gray-900 dark:text-white ${FontStyle['font-family-dancing-script']}`}>Tên tài khoản</label>
                                 <input 
-                                type="email" 
-                                id="email" 
+                                type="text" 
+                                id="userName" 
                                 {...register('userName')}
                                 className="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" 
                                 placeholder="Nhập tên tài khoản..." 
