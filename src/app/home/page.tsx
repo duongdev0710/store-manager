@@ -5,13 +5,14 @@ import { PageNavbar } from "components/navbar/Page"
 import { useState } from "react"
 const HomePage = () => {
     const [item, setItem] = useState([])
+    const [selectItem, setSelectItem] = useState(0)
 
     return (
         <div className="h-screen">
-            <PageNavbar />
+            <PageNavbar getSelectItem={setSelectItem} />
             <div className="grid grid-cols-3">
                 <PageSidebar Props={{product: item, changeItem: setItem}} />
-                <PageLayout Props={{getItem: setItem, product: item}} />
+                <PageLayout Props={{getItem: setItem, product: item, selectItem: selectItem}} />
             </div>
         </div>
     )

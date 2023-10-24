@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 const arrImg = [
   {id: 1, image: 'https://csfood.vn/wp-content/uploads/2016/07/N%C6%B0%E1%BB%9Bc-gi%E1%BA%A3i-kh%C3%A1t-Coca-Cola-lon-250ml.jpg', name: 'Coca Cola', price: 2},
@@ -7,12 +8,22 @@ const arrImg = [
   {id: 4, image: 'https://csfood.vn/wp-content/uploads/2018/01/Cafe-vi%E1%BB%87t-%C4%91en-u%E1%BB%91ng-li%E1%BB%81n-nescafe-lon-170ml.png', name: 'Cafe Latte', price: 1},
   {id: 5, image: 'https://csfood.vn/wp-content/uploads/2016/07/N%C6%B0%E1%BB%9Bc-gi%E1%BA%A3i-kh%C3%A1t-h%C6%B0%C6%A1ng-chanh-Sprite-chai-1.5L.jpg', name: 'Sprite', price: 2},
 ]
-export const PageLayout = ({Props}: {Props: {getItem: Function, product: any}}) => {
-  const {getItem, product} = Props
+export const PageLayout = ({Props}: {Props: {getItem: Function, product: any, selectItem: any}}) => {
+  const {getItem, product, selectItem} = Props
+  const [arrProduct, setArrProduct] = useState<any[]>([])
+
+  useEffect(() => {
+    if (selectItem == 0) {
+      setArrProduct(arrImg)
+    } else {
+      setArrProduct(arrImg.filter(item => item.id == selectItem))
+    }
+  }, [selectItem])
+
   return(
     <div className="col-span-2 border border-[#9e9e9e] h-screen">
       <div className="grid grid-cols-3 gap-4">
-        {arrImg.map((item: any, index: number) => {
+        {arrProduct.map((item: any, index: number) => {
           return (
             <div key={index} className="col-span-1 border border-black">
               <button className="cursor-pointer" onClick={() => {
