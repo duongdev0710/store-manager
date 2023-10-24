@@ -10,6 +10,16 @@ const nextConfig = {
         // Return the modified config
         return config;
       },
+      images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'csfood.vn',
+            port: '',
+            pathname: '/**'
+          }
+        ]
+      }
 }
 
 module.exports = nextConfig
