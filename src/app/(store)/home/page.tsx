@@ -1,5 +1,5 @@
 'use client'
-import { PageLayout } from "components/layout/Page"
+import { PageLayout } from "@/components/layout/Content"
 import { useState } from "react"
 const HomePage = () => {
     const [item, setItem] = useState([])

@@ -54,7 +54,7 @@ const Login = () => {
         setTimeout(() => {
             setLoading(false)
             if (data.username === 'duongdt' && data.password === '123456') {
-                router.push('/store/home')
+                router.push('/home')
             } else {
                 Toast.fire({
                     icon: 'error',

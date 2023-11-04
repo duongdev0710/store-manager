@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Tooltip, Button } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import variables from './variables.module.scss'
 
 interface TypeUser {
   token: string;
@@ -50,7 +49,7 @@ const PageHeader = () => {
             </Tooltip>
           </div> : <div>
             <Link href="/login">
-              <span className="mr-4" style={{color: variables.primaryColor}}>Đăng nhập</span>
+              <span className="mr-4" >Đăng nhập</span>
             </Link>
             <Link href="/register">
               <span>Đăng ký</span>
