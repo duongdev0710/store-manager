@@ -1,12 +1,10 @@
-'use client'
-import { PageLayout } from "@/components/layout/Content"
-import { useState } from "react"
+import { Metadata } from "next"
+import MainPage from "./main"
+export const metadata: Metadata = {
+    title: 'Trang chủ',
+    description: 'Home',
+  }
 const HomePage = () => {
-    const [item, setItem] = useState([])
-    const [selectItem, setSelectItem] = useState(0)
-
-    return <PageLayout Props={{ getItem: setItem, product: item, selectItem: selectItem }} />
+    return <MainPage />
 }
-
-
 export default HomePage
