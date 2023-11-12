@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   description: ''
 }
 
-export const CartPage = () => {
+const CartPage = () => {
   return <MainPage />
 }
+
+export default CartPage

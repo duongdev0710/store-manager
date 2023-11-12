@@ -1,9 +1,9 @@
 "use client";
 import { ReactNode } from "react";
 import Loading from "@/components/Loading";
-import PageHeader from "@/components/layout/layout/header/Page";
-import { PageNavbar } from "@/components/layout/layout/navbar/Navbar";
-import { PageSidebar } from "@/components/layout/layout/sidebar/Page";
+import PageHeader from "@/components/templates/layout/Header";
+import { PageNavbar } from "@/components/templates/layout/navbar/Navbar";
+import { PageSidebar } from "@/components/templates/layout/sidebar/Sidebar";
 import { ToastContainer } from "react-toastify";
 
 interface OfflinePointsProps {
